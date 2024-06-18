@@ -33,10 +33,10 @@ def receive_bloomberg_sns_message(request):
             response_json = json.loads(request.body)
 
             print(f"\nresponse_json: \n {response_json}")
-            file_key = response_json['Message']['generated']['data']['key']
+            file_key = response_json['Message']["generated"]["data"]["key"]
             file_key = format_file_key(file_key)
 
-            print(f"file_key: {file_key}")
+            print(f"\nfile_key: \n{file_key}")
 
             # client = BDLClient()
             # datas = client.get_json_response(file_key)
