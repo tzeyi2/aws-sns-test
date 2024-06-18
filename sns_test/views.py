@@ -13,6 +13,8 @@ def index(request):
 @csrf_exempt
 def receive_bloomberg_sns_message(request):
     # Documentation: https://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.prepare.html
+    print(f"Request.header: \n{request.headers}\n")
+    print(f"Request.body: \n{request.body}")
     
     if request.method == 'POST':
         message_type = request.headers['x-amz-sns-message-type']
@@ -28,13 +30,9 @@ def receive_bloomberg_sns_message(request):
 
         # Notification messages
         elif message_type == "Notification":
-            print(f"request.body: {request.body}")
-
             response_json = json.loads(request.body)
             file_key = response_json['generated']['data']['key']
             file_key = format_file_key(file_key)
-                                       
-            print(f"file_key: {file_key}")
 
             # client = BDLClient()
             # datas = client.get_json_response(file_key)
