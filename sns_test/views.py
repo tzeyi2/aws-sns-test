@@ -31,6 +31,8 @@ def receive_bloomberg_sns_message(request):
         # Notification messages
         elif message_type == "Notification":
             response_json = json.loads(request.body)
+
+            print(f"\nresponse_json: \n {response_json}")
             file_key = response_json['generated']['data']['key']
             file_key = format_file_key(file_key)
 
