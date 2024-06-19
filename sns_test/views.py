@@ -20,12 +20,13 @@ def receive_bloomberg_sns_message(request):
         response_json = json.loads(request.body)
         verify_sns(body_data=response_json)
 
+        print(f"response_json: \n {response_json}")
+
         # Subscription confirmation
         if message_type == 'SubscriptionConfirmation':
             subscribe_url = response_json["SubscribeURL"]
 
-            response = requests.get(subscribe_url)
-            print(f"response: {response}")
+            requests.get(subscribe_url)
 
             return HttpResponse(f"Subscription confirmed. Subscription confirmation request.body: {request.body}") 
 
@@ -37,6 +38,7 @@ def receive_bloomberg_sns_message(request):
 
             file_key = response_json['generated']['data']['key']
             file_key = format_file_key(file_key)
+            print("file_key: {file_key}")
 
             # client = BDLClient()
             # datas = client.get_json_response(file_key)
@@ -70,6 +72,7 @@ def verify_sns(body_data):
 
     if parsed_url.scheme != 'https' or not parsed_url.hostname.endswith('.amazonaws.com'):
         logger.warning("Bloomberg sns: Invalid SigningCertUrl. Url should be from amazonaws.com and be in https")
+        print("Bloomberg sns: Invalid SigningCertUrl. Url should be from amazonaws.com and be in https")
         raise ValueError(f'Invalid SigningCertURL: {sign_url}')
     
     certificate = requests.get(sign_url).text.encode('utf-8')
@@ -107,7 +110,7 @@ def verify_sns(body_data):
                 )
 
     except InvalidSignature:
-        logger.warning("Bloomberg sns: Invalid signature received. Need to check the validity of sender and message")
+        print("Bloomberg sns: Invalid signature received. Need to check the validity of sender and message")
         raise HTTPError('Invalid signature. Please check validity of the message')
 
 
