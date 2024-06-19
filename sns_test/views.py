@@ -4,7 +4,6 @@ import re
 import requests
 from django.http import HttpResponse
 from requests import HTTPError
-from explorers.bloomberg.bdl.bdl_api_client import BDLClient
 from django.views.decorators.csrf import csrf_exempt
 
 
