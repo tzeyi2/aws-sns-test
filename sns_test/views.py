@@ -9,6 +9,9 @@ from django.views.decorators.csrf import csrf_exempt
 
 logger = logging.getLogger(__name__)
 
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
+
 
 @csrf_exempt
 def receive_bloomberg_sns_message(request):
