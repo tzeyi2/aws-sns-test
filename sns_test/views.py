@@ -16,6 +16,18 @@ def index(request):
 @csrf_exempt
 def receive_bloomberg_sns_message(request):
     if request.method == 'POST':
+
+        """
+        To test sns verifier:
+            temp = json.loads(request.body)
+            temp['MessageId'] = '123'
+            request._body = json.dumps(temp)
+        """
+        
+        temp = json.loads(request.body)
+        temp['MessageId'] = '123'
+        request._body = json.dumps(temp)
+
         message_type = request.headers['X-Amz-Sns-Message-Type']
         response_json = json.loads(request.body)
         verify_sns(body_data=response_json)
