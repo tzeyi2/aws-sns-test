@@ -1,0 +1,120 @@
+{% extends 'base.html' %} {% load static %} {% load i18n %} {% block header %}
+<h1>{% block title %}{% translate "Emission factors" %}{% endblock %}</h1>
+{% endblock %} {% block css %}
+<link
+  rel="stylesheet"
+  href="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs5/1.12.1/dataTables.bootstrap5.min.css{% else %}{% static 'vendor/dataTables.bootstrap5.min.css' %}{% endif %}"
+  integrity="sha512-DYpTY0Ub8eZR1nPIgYG0eNVCWim5dFXr834XUOfrVw/5NNRUrPMl8mpNyHvt+CUjG3TyfV898AYXg9eOS+ekmw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link
+  rel="stylesheet"
+  href="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/datatables.net-buttons-bs5/1.7.1/buttons.bootstrap5.min.css{% else %}{% static 'vendor/buttons.bootstrap5.min.css' %}{% endif %}"
+  integrity="sha512-0LpZpPhy5gC20rXCT9HfsYz0gF+wRD62I/MCY+d1tDgK7xKpvd0hQLMBqyXS9BYdzyis/BdIW2iMIBK8e+0o+Q=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link
+  rel="stylesheet"
+  href="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/datatables-plugins/2.0.2/features/mark.js/datatables.mark.min.css{% else %}{% static 'vendor/datatables.mark.min.css' %}{% endif %}"
+  integrity="sha512-taGA477tPsu+MlwROGfcKQJZ7QCJuSFKUWFYTqVTfYbaUX6YKUQ1j+aaANqZhoFu1Avsr050r2pGOXrGgo2/EQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link rel="stylesheet" href="{% static 'css/list-emission-factors.css' %}" />
+{% endblock css %} {% block content %}
+
+<table
+  id="EmissionFactorsTable"
+  class="display table table-borderless table-striped"
+>
+  <thead>
+    <tr>
+      <th></th>
+      <th>{% translate "Name" %}</th>
+      <th>{% translate "Source" %}</th>
+      <th>{% translate "Year" %}</th>
+      <th>{% translate "Region" %}</th>
+      <th>{% translate "Sector" %}</th>
+      <th class="capitalize-translation">{% translate "Category" %}</th>
+      <th>{% translate "Unit Type" %}</th>
+      <th>{% translate "Emission Factor" %}</th>
+      <th>{% translate "Version" %}</th>
+    </tr>
+    <tr>
+      <!-- Empty cells for filters/search inputs -->
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+</table>
+
+<div class="spinner-border text-pantasdarkblue" role="status">
+  <span class="visually-hidden">{% translate "Loading" %}...</span>
+</div>
+
+{% endblock content %} {% block js %}
+<script
+  src="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/datatables.net/1.12.1/jquery.dataTables.min.js{% else %}{% static 'vendor/jquery.dataTables.min.js' %}{% endif %}"
+  integrity="sha512-MOsicOaJyNWPgwMOE1q4sTPZK6KuUQTMBhkmzb0tFVSRxgx3VnGTwIyRme/IhBJQdWJkfTcIKozchO11ILrmSg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/datatables.net-buttons/1.7.1/js/dataTables.buttons.min.js{% else %}{% static 'vendor/datatables.buttons.min.js' %}{% endif %}"
+  integrity="sha512-dDM0yJk5qN8gaaUywkA8C9CSv9l3C0cf+2qSgKzbLMMi//6RFgd+mcDT9rYdtAtK6H0NH48lS4jbJA1sLnUBHw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs5/1.12.1/dataTables.bootstrap5.min.js{% else %}{% static 'vendor/dataTables.bootstrap5.min.js' %}{% endif %}"
+  integrity="sha512-nfoMMJ2SPcUdaoGdaRVA1XZpBVyDGhKQ/DCedW2k93MTRphPVXgaDoYV1M/AJQLCiw/cl2Nbf9pbISGqIEQRmQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/datatables.net-buttons-bs5/1.7.1/buttons.bootstrap5.min.js{% else %}{% static 'vendor/buttons.bootstrap5.min.js' %}{% endif %}"
+  integrity="sha512-CZHQf3MbdeHGiO9wKc91aKWp5Kr5zyr7pi1NfORVMewQhYBkiJWJN1n2enU9mqWiOI6buO3Jz6dkQKX0PD713w=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js{% else %}{% static 'vendor/jszip.min.js' %}{% endif %}"
+  integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/datatables-buttons/1.7.1/js/buttons.html5.min.js{% else %}{% static 'vendor/buttons.html5.min.js' %}{% endif %}"
+  integrity="sha512-ZUGQhhVpnt2+pGfdtbxpt4BBUic1COXkzPUNW/fRAB2lHS+GqxsuVBDVdtwSS0HVnjoRsmo4xAl1aRjHsFTirw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/datatables-plugins/2.0.2/features/mark.js/datatables.mark.min.js{% else %}{% static 'vendor/datatables.mark.min.js' %}{% endif %}"
+  integrity="sha512-ZaUTNIbxK2YiOJNHVqYOXdGeWG2quiqESM5xBnbOMFYiMw0Jp/9+X2/pPrfOj8hfRMcl8RCimyDrbJh8dJwBug=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="{% if settings.VENDOR_CDN %}https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js{% else %}{% static 'vendor/jquery.mark.min.js' %}{% endif %}"
+  integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+
+<script nonce="{{ request.csp_nonce }}">
+  const AJAX_URL = "{% url 'ajax_show_emission_factor' %}";
+  const CSRF_TOKEN = "{{ csrf_token }}";
+</script>
+<script src="{% static 'javascript/list-emission-factors.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-25 09:03+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: explorers/templates/list_emission_factors.html:2
+#: explorers/templates/show-emission-factor.html:85
+#, fuzzy
+msgid "Emission factors"
+msgstr "Faktor pelepasan"
+
+#: explorers/templates/list_emission_factors.html:35
+#, fuzzy
+msgid "Name"
+msgstr "Nama"
+
+#: explorers/templates/list_emission_factors.html:36
+#: explorers/templates/show-emission-factor.html:27
+#, fuzzy
+msgid "Source"
+msgstr "Sumber"
+
+#: explorers/templates/list_emission_factors.html:37
+#: explorers/templates/show-emission-factor.html:37
+#, fuzzy
+msgid "Year"
+msgstr "tahun"
+
+#: explorers/templates/list_emission_factors.html:38
+#: explorers/templates/show-emission-factor.html:41
+#, fuzzy
+msgid "Region"
+msgstr "Wilayah"
+
+#: explorers/templates/list_emission_factors.html:39
+#: explorers/templates/show-emission-factor.html:46
+#, fuzzy
+msgid "Sector"
+msgstr "Sektor"
+
+#: explorers/templates/list_emission_factors.html:40
+#: explorers/templates/show-emission-factor.html:50
+#, fuzzy
+msgid "Category"
+msgstr "kategori"
+
+#: explorers/templates/list_emission_factors.html:41
+#, fuzzy
+msgid "Unit Type"
+msgstr "Jenis unit"
+
+#: explorers/templates/list_emission_factors.html:42
+#, fuzzy
+msgid "Emission Factor"
+msgstr "Faktor pelepasan"
+
+#: explorers/templates/list_emission_factors.html:43
+#, fuzzy
+msgid "Version"
+msgstr "Versi"
+
+#: explorers/templates/list_emission_factors.html:62
+msgid "Loading"
+msgstr "Memuatkan"
+
+#: explorers/templates/show-emission-factor.html:6
+#, fuzzy, python-format
+msgid "Emission factor: %(emission_factor.name)s"
+msgstr "Faktor pelepasan: %(emission_factor.name)s"
+
+#: explorers/templates/show-emission-factor.html:14
+#, fuzzy
+msgid "Emission factor"
+msgstr "Faktor pelepasan"
+
+#: explorers/templates/show-emission-factor.html:20
+#, fuzzy
+msgid "General"
+msgstr "Umum"
+
+#: explorers/templates/show-emission-factor.html:23
+#, fuzzy
+msgid "Description"
+msgstr "Penerangan"
+
+#: explorers/templates/show-emission-factor.html:54
+#, fuzzy
+msgid "Unit type"
+msgstr "Jenis unit"
+
+#: explorers/templates/show-emission-factor.html:58
+#, fuzzy
+msgid "LCA activity"
+msgstr "aktiviti LCA"
+
+#: explorers/templates/show-emission-factor.html:63
+#, fuzzy
+msgid "CO<sub>2</sub>e calculation"
+msgstr "pengiraan CO <sub>2</sub> e"
+
+#: explorers/templates/show-emission-factor.html:66
+#, fuzzy
+msgid "Method applied"
+msgstr "Kaedah yang digunakan"
+
+#: explorers/templates/show-emission-factor.html:70
+#, fuzzy
+#| msgid "Method applied"
+msgid "Method(s) supported"
+msgstr "Kaedah (s) disokong"
+
+#: explorers/templates/show-emission-factor.html:74
+#: explorers/templates/show-emission-factor.html:77
+#, fuzzy
+msgid "Origin"
+msgstr "asal usul"
+
+#, fuzzy
+#~ msgid "Action"
+#~ msgstr "Tindakan"
+
+#, fuzzy
+#~ msgid "View"
+#~ msgstr "Lihat"

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static green %}
+{% load i18n %}
+
+{% block title %}
+{% blocktranslate trimmed %}
+Emission factor: {{ emission_factor.name }}
+{% endblocktranslate %}
+{% endblock %}
+
+{% block content %}
+
+<h1>
+  <div class="fs-6 text-uppercase text-pantasdarkblue mb-1">{% translate "Emission factor" %}</div>
+  <span class="fw-boldest">{{ emission_factor.name }}</span>
+</h1>
+
+<dl class="border rounded-3 shadow-sm p-4">
+
+  <h2 class="text-pantasdarkblue mb-3">{% translate "General" %}</h2>
+  <dl class="row gx-5 gy-3">
+    <div class="col-12">
+      <dt>{% translate "Description" %}</dt>
+      <dd class="col-md-11">{{ emission_factor.description|default:"-" }}</dd>
+    </div>
+    <div class="col-auto">
+      <dt>{% translate "Source" %}</dt>
+        <dd>
+          {% if emission_factor.source_link != '-' %}
+            <a target="_blank" rel="noopener" href="{{ emission_factor.source_link }}">{{ emission_factor.source|default:"-" }} <i class="fal fa-external-link"></i></a>
+          {% else %}
+            {{ emission_factor.source|default:"-" }}
+          {% endif %}
+        </dd>
+      </div>
+    <div class="col-auto">
+      <dt>{% translate "Year" %}</dt>
+      <dd>{{ emission_factor.year_released|default:"-" }}</dd>
+    </div>
+    <div class="col-auto">
+      <dt>{% translate "Region" %}</dt>
+      <dd>{{ emission_factor.region|default:"-" }}</dd>
+    </div>
+    <div class="m-0"></div>
+    <div class="col-auto">
+      <dt>{% translate "Sector" %}</dt>
+      <dd>{{ emission_factor.sector|default:"-" }}</dd>
+    </div>
+    <div class="col-auto">
+      <dt class="capitalize-translation">{% translate "Category" %}</dt>
+      <dd>{{ emission_factor.category|default:"-" }}</dd>
+    </div>
+    <div class="col-auto">
+      <dt>{% translate "Unit type" %}</dt>
+      <dd>{{ emission_factor.unit_type|default:"-"|capfirst }}</dd>
+    </div>
+    <div class="col-auto">
+      <dt>{% translate "LCA activity" %}</dt>
+      <dd>{{ emission_factor.lca_activity|default:"-"|sentence_case }}</dd>
+    </div>
+  </dl>
+
+  <h2 class="text-pantasdarkblue mb-3">{% translate "CO<sub>2</sub>e calculation" %}</h2>
+  <dl class="row gx-5 gy-3">
+    <div class="col-auto">
+      <dt>{% translate "Method applied" %}</dt>
+      <dd>{{ emission_factor.method_applied|default:"-" }}</dd>
+    </div>
+    <div class="col-auto">
+      <dt>{% translate "Method(s) supported" %}</dt>
+      <dd>{{ emission_factor.method_supported|default:"-" }}</dd>
+    </div>
+    <div class="col-auto">
+      <dt>{% translate "Origin" %}</dt>
+      <dd>
+        {% if emission_factor.origin == 'climatiq' %}
+          {% translate "Origin" %}
+        {% else %}
+          {{ emission_factor.origin|default:"-"|capfirst }}
+        {% endif %}
+      </dd>
+    </div>
+  </dl>
+
+  <h2 class="text-pantasdarkblue mb-3">{% translate "Emission factors" %}</h2>
+  <dl class="row gx-5 gy-3">
+    <div class="col-auto">
+      <dt>CO<sub>2</sub>e</dt>
+      <dd>
+        {{ emission_factor.emission_factor_value.CO2e|default_if_none:"-" }}
+        {% if emission_factor.emission_factor_value.CO2e != None %}{{ emission_factor.unit }}{% endif %}
+      </dd>
+    </div>
+    <div class="col-auto">
+      <dt>CO<sub>2</sub></dt>
+      <dd>
+        {{ emission_factor.emission_factor_value.CO2|default_if_none:"-" }}
+        {% if emission_factor.emission_factor_value.CO2 != None %}{{ emission_factor.unit }}{% endif %}
+      </dd>
+    </div>
+    <div class="col-auto">
+      <dt>CH<sub>4</sub></dt>
+      <dd>
+        {{ emission_factor.emission_factor_value.CH4|default_if_none:"-" }}
+        {% if emission_factor.emission_factor_value.CH4 != None %}{{ emission_factor.unit }}{% endif %}
+      </dd>
+    </div>
+    <div class="col-auto">
+      <dt>N<sub>2</sub>O</dt>
+      <dd>
+        {{ emission_factor.emission_factor_value.N2O|default_if_none:"-" }}
+        {% if emission_factor.emission_factor_value.N2O != None %}{{ emission_factor.unit }}{% endif %}
+      </dd>
+    </div>
+  </dl>
+
+</div>
+
+{% endblock content %}

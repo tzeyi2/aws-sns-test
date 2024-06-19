@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-25 09:03+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: explorers/templates/list_emission_factors.html:2
+#: explorers/templates/show-emission-factor.html:85
+#, fuzzy
+msgid "Emission factors"
+msgstr "ปัจจัยการปล่อยก๊าซเรือนกระจก"
+
+#: explorers/templates/list_emission_factors.html:35
+#, fuzzy
+msgid "Name"
+msgstr "ชื่อ"
+
+#: explorers/templates/list_emission_factors.html:36
+#: explorers/templates/show-emission-factor.html:27
+#, fuzzy
+msgid "Source"
+msgstr "แหล่งที่มา"
+
+#: explorers/templates/list_emission_factors.html:37
+#: explorers/templates/show-emission-factor.html:37
+#, fuzzy
+msgid "Year"
+msgstr "ปี"
+
+#: explorers/templates/list_emission_factors.html:38
+#: explorers/templates/show-emission-factor.html:41
+#, fuzzy
+msgid "Region"
+msgstr "ภูมิภาค"
+
+#: explorers/templates/list_emission_factors.html:39
+#: explorers/templates/show-emission-factor.html:46
+#, fuzzy
+msgid "Sector"
+msgstr "ภาคส่วน"
+
+#: explorers/templates/list_emission_factors.html:40
+#: explorers/templates/show-emission-factor.html:50
+#, fuzzy
+msgid "Category"
+msgstr "หมวดหมู่"
+
+#: explorers/templates/list_emission_factors.html:41
+#, fuzzy
+msgid "Unit Type"
+msgstr "ประเภทหน่วย"
+
+#: explorers/templates/list_emission_factors.html:42
+#, fuzzy
+msgid "Emission Factor"
+msgstr "ปัจจัยการปล่อยก๊าซเรือนกระจก"
+
+#: explorers/templates/list_emission_factors.html:43
+#, fuzzy
+msgid "Version"
+msgstr "เวอร์ชัน"
+
+#: explorers/templates/list_emission_factors.html:62
+msgid "Loading"
+msgstr "กำลังโหลด"
+
+#: explorers/templates/show-emission-factor.html:6
+#, fuzzy, python-format
+msgid "Emission factor: %(emission_factor.name)s"
+msgstr "ปัจจัยการปล่อย: %(emission_factor.name)s"
+
+#: explorers/templates/show-emission-factor.html:14
+#, fuzzy
+msgid "Emission factor"
+msgstr "ปัจจัยการปล่อยก๊าซเรือนกระจก"
+
+#: explorers/templates/show-emission-factor.html:20
+#, fuzzy
+msgid "General"
+msgstr "ทั่วไป"
+
+#: explorers/templates/show-emission-factor.html:23
+#, fuzzy
+msgid "Description"
+msgstr "คำอธิบาย"
+
+#: explorers/templates/show-emission-factor.html:54
+#, fuzzy
+msgid "Unit type"
+msgstr "ประเภทหน่วย"
+
+#: explorers/templates/show-emission-factor.html:58
+#, fuzzy
+msgid "LCA activity"
+msgstr "กิจกรรมแอลซีเอ"
+
+#: explorers/templates/show-emission-factor.html:63
+#, fuzzy
+msgid "CO<sub>2</sub>e calculation"
+msgstr "การคำนวณ CO <sub>2</sub> อี"
+
+#: explorers/templates/show-emission-factor.html:66
+#, fuzzy
+msgid "Method applied"
+msgstr "ใช้วิธีการ"
+
+#: explorers/templates/show-emission-factor.html:70
+#, fuzzy
+msgid "Method(s) supported"
+msgstr "วิธีการที่รองรับ"
+
+#: explorers/templates/show-emission-factor.html:74
+#: explorers/templates/show-emission-factor.html:77
+#, fuzzy
+msgid "Origin"
+msgstr "ต้นทาง"
+
+#~ msgid "Action"
+#~ msgstr "เลือกใช้งาน"
+
+#~ msgid "View"
+#~ msgstr "แสดงข้อมูล"
