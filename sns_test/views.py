@@ -60,9 +60,7 @@ def verify_sns(body_data):
 
     from urllib.parse import urlparse
 
-    body_data = json.dumps(body_data)
     body_data['MessageId'] = '123'
-    body_data = json.loads(body_data)
 
     # Get the X509 certificate that Amazon SNS used to sign the message.
     sign_url = body_data['SigningCertURL']
