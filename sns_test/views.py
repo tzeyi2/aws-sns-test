@@ -36,7 +36,7 @@ def receive_bloomberg_sns_message(request):
             file_key = response_json['generated']['data']['key']
             file_key = format_file_key(file_key)
 
-            print(file_key)
+            print(f'\nfile_key: {file_key}')
 
             # TODO: call store_to_model here
             return HttpResponse(f"notification response_json: \n{response_json}")
@@ -59,6 +59,10 @@ def verify_sns(body_data):
     from cryptography.exceptions import InvalidSignature
 
     from urllib.parse import urlparse
+
+    body_data = json.dumps(body_data)
+    body_data['MessageId'] = '123'
+    body_data = json.loads(body_data)
 
     # Get the X509 certificate that Amazon SNS used to sign the message.
     sign_url = body_data['SigningCertURL']
